@@ -1,0 +1,40 @@
+---
+ - hosts: localhost
+   gather_facts: no
+   become: yes
+   become_method: sudo
+
+   tasks:
+
+     -name: Install git
+      yum:
+       name: git
+       state: present
+
+
+     -name: Install wget
+      yum:
+       name: wget
+       state: present
+
+
+     -name: Install openjdk
+      yum:
+       name: java-1.8.0-openjdk
+       state: present
+
+     -name: Add Jenkins repo
+      yum_repository:
+        name: Jenkins repo
+        description: Jenkins YUM repo
+        baseurl: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+
+     -name: Add key
+     -rpm_key:
+       state: present
+       key: http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+
+     -name: Install Jenkins through yum
+      yum:
+        name: jenkins
+        state: present
