@@ -7,19 +7,19 @@
    tasks:
 
      -name: Install git
-      yum:
+     -yum:
        name: git
        state: present
 
 
      -name: Install wget
-      yum:
+     -yum:
        name: wget
        state: present
 
 
      -name: Install openjdk
-      yum:
+     -yum:
        name: java-1.8.0-openjdk
        state: present
 
@@ -35,6 +35,8 @@
        key: http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 
      -name: Install Jenkins through yum
-      yum:
+     -yum:
         name: jenkins
         state: present
+
+        
