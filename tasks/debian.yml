@@ -1,0 +1,9 @@
+- name: Installing JAVA
+  apt:
+   name: default-jre
+   state: latest
+
+- name: Installing Jenkins
+  apt:
+   name: jenkins
+   state: present   

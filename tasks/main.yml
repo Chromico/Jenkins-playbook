@@ -1,0 +1,23 @@
+---
+
+- name: Installing Jenkins on a fedora machine 
+  hosts: localhost
+  become_method: sudo
+  become: true
+  roles:
+    - /home/chromico/test/tasks/fedora.yml
+
+- name: Installing Jenkins on a redhat machine
+  hosts: localhost
+  become_method: sudo
+  become: true
+  roles:  
+    - /home/chromico/test/tasks/redhat.yml
+
+- name: Installing Jenkins on a debian machine
+  hosts: localhost
+  become_method: sudo
+  become: true
+  roles:    
+    - /home/chromico/test/tasks/debian.yml
+    
